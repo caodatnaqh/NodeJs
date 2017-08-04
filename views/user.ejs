@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Learning Nodejs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="../css/lazy-load.css">
+        <link rel="shortcut icon" href="../icon/logo-nodejs.ico" />
+        <link rel="stylesheet" href="../css/swiper.min.css">
+        <link rel="stylesheet" href="../customer.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="../js/jquery.lazyloadxt.js"></script>
+        <script src="../js/swiper.min.js"></script> 
+        <script src="../js/jquery.js"></script> 
+
+</head>
+
+    <body>
+           <div style="text-align:center; margin-bottom:10px; padding-top: 10px">
+              <p onclick="pre()" class="pre"> Trở về </p>
+          </div> 
+                    <!-- <div style="margin-left:20%; float:left">
+                        <div>
+                        <img style="border-radius:5px" data-src="/profilepics/<%=user.username%>_lg.jpg" width="450px" height="450px"/>
+                        </div>
+                     <br/>
+                      <div style="text-align:center">
+                        <br/><p style="padding:3px 5px ;color: white; background-color:blue; display:inline-block; border-radius:3px"> <%= user.name.full%> </p> 
+                     </div> 
+                    </div> -->
+        <!-- <div class="container outerpadding">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="panel">
+                    <div class="panel-heading" style="background-color:rebeccapurple;color:#fff;"><strong><%=user.name.full%></strong></div>
+                    <div class="panel-body" style="background-color:beige;color:blueviolet; box-shadow:0 -12px 13px rebeccapurple inset;">
+                    
+                    <div class="boximg">
+                    <img  data-src="/profilepics/<%=user.username%>_lg.jpg" class="img-responsive">
+                    <span class="label label-danger date"><%= user.username%></span>
+                    </div>
+                    <br/>
+                    <p class="pull-left"><%= user.email %></p>
+                
+                </div>
+                </div>
+            </div> -->
+
+
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-4">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rebeccapurple;color:#fff;"><strong><%=user.name.full%></strong></div>
+                            <div class="panel-body" style="background-color:beige;color:blueviolet; box-shadow:0 -12px 13px rebeccapurple inset;">
+                                <div class="boximg">
+                                    <img src="/profilepics/<%=user.username%>_lg.jpg" class="img-responsive"></a>
+                                    <span class="label label-danger date"><%= user.username %></span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <blockquote>
+                        <p><%=user.name.full%></p> <small><cite ><%=address.street%>, <%=address.city%>  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+                    </blockquote>
+                    <p> <i class="	glyphicon glyphicon-user"></i> <%=user.username%>
+                        <br/><i class="glyphicon glyphicon-envelope"></i> <%=user.email%>
+                        <br/> <i class="glyphicon glyphicon-phone"></i> <%=user.phone%>
+                        <br /> <i class="glyphicon glyphicon-globe"></i> <%=user.nationality%></p>
+                </div>
+        
+        
+        <div class="col-sm-md-4 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Location
+                </div>
+                <div class="panel-body">
+                    <dl>
+                        <dt>Street:</dt>
+                            <dd class="view"><%=address.street%></dd>
+                            <dd class="edit"><input class="form-control" id="street" type="text" value="<%=address.street%>"></dd>
+                            <br>
+                        <dt>City:</dt>
+                            <dd class="view"><%=address.city%></dd>
+                            <dd class="edit"><input class="form-control" id="city" type="text" value="<%=address.city%>"></dd>
+                            <br>
+                        <dt>State:</dt>
+                            <dd class="view"><%=address.state%></dd>
+                            <dd class="edit"><input class="form-control" id="state" type="text" value="<%=address.state%>"></dd>
+                            <br>
+                        <dt>Zip:</dt>
+                            <dd class="view"><%=address.zip%></dd>
+                            <dd class="edit"><input class="form-control" id="zip" type="text" value="<%=address.zip%>"></dd>
+                            <br>
+                        <dt></dt>
+                            <dd class="edit">
+                                <div class="btn-change">
+                                    <p onclick="save()" style="padding:3px 15px ;color: white; background-color:blue; display:inline-block; border-radius:3px"> Lưu </p>
+                                    <p onclick="cancel()" style="padding:3px 15px ;color: white; background-color:red; display:inline-block; border-radius:3px"> Hủy </p>
+                                </div>
+                            </dd>
+                    </dl>
+            <div class="btnn" style="text-align:center">
+                <p onclick="edit()" style="padding:3px 15px ;color: white; background-color:blue; display:inline-block; border-radius:3px"> Sửa </p>
+                <p onclick="del()" style="padding:3px 15px ;color: white; background-color:red; display:inline-block; border-radius:3px"> Xóa </p>
+            </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        
+    <script>
+        $('.edit').hide()
+        function edit(){
+            $('.btnn').hide()
+            $('.edit').show()
+            $('.view').hide()
+        }
+        function cancel(){
+            $('.edit').hide()
+            $('.btnn').show()
+            $('.view').show()
+        }
+        function save(){
+            $.ajax('/<%= user.username%>',{
+                method:'PUT',
+                data:{
+                    street: $('#street').val(),
+                    city: $('#city').val(),
+                    state: $('#state').val(),
+                    zip: $('#zip').val()
+                },
+                complete:function(){
+                    cancel();
+                    location.reload();
+                }
+            })
+        }
+        function del(){
+            $.ajax('/<%= user.username%>',{
+                method:'DELETE',
+                complete:function(){
+                    cancel();
+                    location.reload();
+                }
+            })
+        }
+        function pre(){
+            window.location = "/"
+        }
+            $('.btnn').show()
+    </script>    
+    </body>
+</html>

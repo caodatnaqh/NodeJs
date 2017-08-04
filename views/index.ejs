@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Learning Nodejs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../css/lazy-load.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../customer.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/jquery.lazyloadxt.js"></script>
+    <script src="../js/swiper.min.js"></script> 
+    <script src="../js/jquery.js"></script> 
+
+</head>
+
+    <body>
+        <div style="text-align:center; padding-top:10px"><p style="padding:3px 5px ;color: white; background-color:blue; display:inline-block; border-radius:3px">Nguyen Thanh Don</p></div>
+        <!-- swiper -->
+               <!-- <div class="swiper-container">
+            <div class="swiper-wrapper">
+        <% for(var i = 0; i<users.length; i++) { %>
+            <div class="swiper-slide" style="text-align:center">
+                 <div>
+                <img data-src="/profilepics/<%=users[i].username%>_lg.jpg" />
+                </div> 
+            
+            <br/>
+                 <div>
+                    <a href="/<%= users[i].username %>"><%=users[i].name.fullname %></a>
+                </div> 
+            </div>
+        <% } %>
+        </div>
+        <div class="swiper-pagination"></div>
+        </div>   -->
+
+       <div class="container outerpadding">
+            <div class="row">
+                <% for(var i = 0; i<users.length; i++) { %>
+                <div class="col-lg-3">
+                    <div class="panel">
+                        <div class="panel-heading" style="background-color:rebeccapurple;color:#fff;"><a class="link-user" href="/<%= users[i].username %>"><%=users[i].name.fullname %></a></div>
+                        <div class="panel-body" style="background-color:beige;color:blueviolet; box-shadow:0 -12px 13px rebeccapurple inset;">
+                        <div class="boximg">
+                            <a href="/<%= users[i].username %>"><img src="/profilepics/<%=users[i].username%>_lg.jpg" class="img-responsive"></a>
+                            <span class="label label-danger date"><%= users[i].username %></span>
+                        </div>
+                        <br>
+                        <p class="pull-left"><%= users[i].email %><br>
+                        </div>
+                    </div>
+                </div>
+                <!-- <script>
+                        function infouser(){
+                            window.location = "/<%= users[i].username %>"
+                        }
+                </script> -->
+                <% } %> 
+            </div>
+       </div>      
+
+       <!-- <div style="margin: auto 30px;">
+           <% for(var i = 0; i<users.length; i++) { %>
+                    <div class="list-user">
+                        <div style="margin-bottom:5px">
+                             <img class="user" onclick="infouser()" data-src="/profilepics/<%=users[i].username%>_lg.jpg" height="150" width="150" /> 
+                        </div>
+                        <div>
+                            <a class="link-user" href="/<%= users[i].username %>"><%=users[i].name.fullname %></a>
+                        </div>
+                    </div>
+                    
+                <% } %>    
+       </div>            -->
+        
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: (swiper, index, className)=>{
+            return '<span class="' + className + '">' + (index + 1) + '</span>';
+        }
+    }); 
+    </script>
+
+    
+
+    </body>
+</html>
